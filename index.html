@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog site</title>
+    </head>
+    <body>
+            <header>header</header>
+            <main>blog</main> 
+            <footer>footer</footer>
+            <br><br>
+        <main>
+            
+            <!--HEADINGS -->
+            <h1>My first blog</h1>
+            <h2>My first blog</h2>
+            <h3>My first blog</h3>
+            <h4>My first blog</h4>
+            <h5>My first blog</h5>
+            <h6>My first blog</h6>
+            <br><br>
+            <!-- Text and Paragraph -->
+            <h2>Text and Paragraph</h2>
+            <p>
+                Hello today is my first day of Training of MERN under Programming Pathshala.
+            </p>
+
+            <b>Bold</b><br>
+            <strong>Bold with high importance</strong> <br>
+            <i>italic</i> <br>
+            <em>emphasized</em> <br> 
+            <del>delete the content</del> &nbsp;
+            <ins>inserting some content</ins>
+            <aside>the content is not important to show in the middle or top or bottom</aside>
+
+            <!-- links and target -->
+            <h2>Links and Target</h2>
+            <a href="https://www.google.com" target="_blank">GOOGLE</a>
+            <br>
+            <a href="www.google.com" target="_parent">GOOGLE</a>
+            <br>
+            <a href="https://www.google.com" target="_self">GOOGLE</a>
+            <br>
+            <a href="https://www.google.com" target="_top">GOOGLE</a>
+            <br>
+
+
+
+            <!-- inline and block level elements -->
+            <h2>Inline and Block level elements</h2>
+            <a href="www.google.com">Inline</a>
+            <br>
+
+            <img width="200px" height="220px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFXOOcZnaslyfjPTGV4q_PlLC9Ypmg8kzTgBP5Nrg_FA&s" alt="pic nahi dikhegi"> 
+            <br>
+
+            <span>This is span</span>
+
+            <hr>
+
+            <iframe width="200px" height="300px" src="https://www.flipkart.com" frameborder="0" ></iframe>
+            <iframe width="200px" height="300px" src="https://www.Amazon.com" frameborder="2" ></iframe>
+            <h1>main page</h1>
+            <br>
+
+            <iframe width="200px" height="250px" src="/HTML/content.html" frameborder="0"></iframe>
+            <br>
+            <h2>target differences</h2>
+            <a href="https://www.flipkart.com" target="_blank">_blank</a><br>
+            <a href="https://www.flipkart.com" target="_parent">_parent</a><br>
+            <a href="https://www.flipkart.com" target="_self">_self</a><br>
+            <a href="https://www.flipkart.com" target="_top">_top</a>
+            
+
+             <!-- list -->
+             <h2>List</h2>
+             <ol>
+                <li>a</li>
+                <li>b</li>
+             </ol>
+             <ul>
+                <li>a</li>
+                <li>b</li>
+             </ul>
+             <h2>description list</h2>
+             <dl>
+                <dt>hey</dt>
+                <dd>bro</dd>
+            </dl>
+            
+            <h2>table</h2>
+            <table border="1" style="border-collapse: collapse;">
+            <caption>Student Data</caption>
+                <thead>
+                    <tr>
+                        <th>Sr.No.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ajay Chauhan</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Apoorv sarswat</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Rajat Bhardwaj</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+             </table> 
+             <p>their are some more properties like colspan,rowspan</p>
+             
+            <!-- form and input tag-->
+
+
+            <h2>Forms in Html</h2> 
+            <form action="./content.html">
+                <label>Name:</label><br>
+                <input type="text" name="userName" placeholder="Please type your Name" autocomplete="off"><br><br>
+
+                <label>Age:</label><br>
+                <input type="number" name="userAge" placeholder="Please type your Age"><br><br>
+
+                <label>Password:</label><br>
+                <input type="password" placeholder="Please type your Password" required><br><br>
+
+                <label>Email:</label><br>
+                <input type="email" placeholder="Please type your Email" required><br><br>
+
+                <label>Hobbies:</label><br>
+
+                <input id="cricket" type="checkbox"  name="userHobbies">
+                <label for="cricket">Cricket</label>
+                <br>
+                
+                <input id="badminton" type="checkbox"  name="userHobbies">
+                <label for="badminton">badminton</label>
+                <br>
+
+                <input id="volleyball" type="checkbox"  name="userHobbies">               
+                <label for="volleyball">volleyball</label>
+                <br><br>
+
+                <label for="">Gender:</label><br>
+
+                <input name="userGender" type="radio" id="male" >
+                <label for="male">Male</label>
+                <br>
+                <input name="userGender" type="radio" id="Female">
+                <label for="Female">Female</label>
+                <br><br>
+
+                <textarea placeholder="Please provide the  details"></textarea>
+                    <br><br>
+                    <label for="select-city">City:</label>
+                    <select id="select-city" name="City">
+                        <option>Ghaziabhad</option>
+                        <option selected>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Kanpur</option>
+                    </select>
+                    <br><br>
+                    <a href="mailto:xyz@abc.com">Mail To</a>
+                    <br>
+                    <a href="tel:1234567890">Contact Number</a>
+                <br><br>
+                <input type="submit">
+                &nbsp;
+                <input type="reset">
+                &nbsp;
+                <button type="reset">reset the form</button>
+                &nbsp;
+                <button type="submit">submit the form
+                </button>
+            </form>
+            <br><br>
+                <!-- video tag -->
+                <h2> video tag</h2>
+                <video controls autoplay muted width="200px" height="200px" src="./5082599-hd_1080_2048_25fps.mp4"></video>
+        </main>
+
+        
+    </body>
+</html>
