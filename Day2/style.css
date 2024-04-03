@@ -1,0 +1,289 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+/* button css */
+.btn{
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 16px;
+    width: 13rem;
+}
+
+.btn-small{
+    font-size: 0.7rem;
+    width: 10rem;
+}
+.btn-big{
+    font-size: 2rem;
+    width: 15rem;
+}
+
+/* MARGIN CSS */
+.mrg1{
+    padding: 10px;
+    width: 100px;
+    background-color: rgb(170, 0, 255);
+    margin: 16px; 
+    /* all */   
+}
+.mrg2{
+    padding: 10px;
+    width: 100px;
+    background-color: rgb(0, 68, 255);
+    margin: 16px 10px; 
+    /* top&bottom left&right */
+}
+
+.mrg3{
+    padding: 10px;
+    width: 100px;
+    background-color: aqua;
+    margin: 16px 10px 16px; 
+    /* top left&right bottom */
+}
+
+/* JUSTIFY CONTENT */
+
+.parent-j{
+    background-color: aquamarine;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+}
+.parent1{
+    justify-content: space-between;
+}
+.parent2{
+    justify-content: space-around;
+}
+.parent3{
+    justify-content: space-evenly;
+}
+.parent4{
+    justify-content: flex-end;
+}
+
+.child{
+    border: 1px solid red;
+    background-color: blueviolet;
+    /* width: 30px; */
+    flex-basis: 40px;
+}
+
+
+/* body{
+    height: 100vh;
+    width: 100vw;
+    padding: 10px 32px;
+} */
+
+/* CSS COMBINATORS */
+.parent ul{
+    background-color: aqua;
+}
+
+.parent > ul{
+    background-color: blue;
+}
+
+.parent+ul{
+    background-color: blueviolet;
+} 
+.parent{
+    ol{
+        background-color: blueviolet;
+    }
+    ul:first-child{
+        background-color: blue;
+    }
+    ul:last-child {
+        background-color: green;
+        li:nth-child(2){
+            background-color: violet;
+        }
+    }
+}
+ul li:first-of-type{
+    background-color: aqua;
+}
+ul li:last-of-type{
+    background-color: rgb(0, 106, 255);
+}
+ul li:nth-of-type(2){
+    background-color: rgb(140, 255, 0);
+}
+
+/* CSS UNITS */
+
+.parent-d{
+    font-size: 20px;
+    width: 2px;
+}
+.childd{
+    font-size: 2em;
+    /* em is 2 times the size of its parent element */
+    background-color: aqua;
+    width: 10em;
+    /* width is not depended on its parent element */
+}
+
+/* .search-box{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.cart{
+    flex-grow: 1;
+} */
+
+
+
+
+/* div{
+    text-align: center;
+} */
+img{
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* p{
+    background-color: blueviolet;
+} */
+/* #myarea{
+    background-color: blueviolet;
+} */
+/* html{
+    font-size: 30px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .parent{
+    p{
+        background-color: brown;
+        padding: 10px;
+        width: fit-content;
+    }
+    span{
+        background-color: aqua;
+        padding: 4px;
+    }
+} */
+/* .parent{
+    background-color: cadetblue;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
