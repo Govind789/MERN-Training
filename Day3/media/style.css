@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.parent1{
+    background-color: purple;
+    color: white;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 20px;
+
+    /* trainsition */
+    transition-property: height,width;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    
+    h2{
+        height: 75px;
+    }
+}
+
+@media( 800px <= width <= 1200px){
+    .parent1{
+        background-color: aqua;
+    }
+}
+
+@media(200px <= width <= 400px){
+    .parent1{
+        height: 200px;
+        width: 200px;
+    }
+}
+@media(100px <= width <= 300px){
+    .parent1{
+        height: 100px;
+        width: 100px;
+    }
+}
