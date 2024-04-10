@@ -43,13 +43,73 @@
 
 
 //HTTP
-
+const fs = require('fs');
 const http = require('http');
+
+const data = fs.readFileSync('./data.json','utf-8');
+const htmlTemplate = fs.readFileSync('./templates/page.html',{encoding:'utf-8'});
+const cardTemplate = fs.readFileSync('./templates/card.html',{encoding:'utf-8'});
+// console.log(cardTemplate);
+
+const dataObj = JSON.parse(data);
+const products = dataObj.products;
+
+// console.log(dataObj);
+
+// const page  =  '<h1>Welcome</h1>'
+// const htmlTemplate = `
+//     <!DOCTYPE HTML>
+//     <html>
+//     <head>
+//     </head>
+//     <body>
+//         __PRODUCTS__CARDS__
+//     </body>
+//     </html>`
+
+
+// const cardTemplate = `
+
+// <!DOCTYPE HTML>
+//     <html>
+//     <head>
+//     </head>
+
+//     <body>
+//         <div class = 'product-card'>
+//             <h4>__TITLE__</h4>
+//             <p>__Info__</p>
+//         </div>
+//     </body>
+//     </html>`
+
+
+// const card1 = cardTemplate
+//                         .replace('__TITLE__',products[0].title)
+//                         .replace('__Info__',products[0].description);
+
+// const card2 = cardTemplate
+//                         .replace('__TITLE__',products[1].title)
+//                         .replace('__Info__',products[1].description);
+
+const allCards = products.map((elem)=>{
+    let newCard = cardTemplate;
+    newCard = newCard.replace('__TITLE__',elem.title);
+    newCard = newCard.replace('__Info__',elem.description);
+    return newCard
+})
+
+const allCardString = allCards.join(' ');
+
+const page = htmlTemplate.replace('__PRODUCTS__CARDS__',allCardString );
 
 const app = http.createServer((req,res) =>{
     console.log('request recieved');
-    console.log(req);
-    res.end("hello");
+    console.log(req.url);
+    res.writeHead(200,{
+        'content-type':'text/html'
+    })
+    res.end(page);
 });
 
 app.listen(5000);
