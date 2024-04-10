@@ -5,6 +5,8 @@ function fetchAPI(){
 }
 
 function renderURL(data){
+    const loc = document.getElementsByTagName("div");
+
     const root = document.getElementById("root");
     const days = data.days;
     console.log(days);
@@ -24,11 +26,9 @@ function renderURL(data){
     row.appendChild(hcell);
     
     root.appendChild(row);
+
     
     let childRow = document.createElement("tr");
-
-    
-
     for(let i = 0;i<days.length;i++){
         childRow = document.createElement("tr");
         let cr = document.createElement("td");
@@ -45,10 +45,6 @@ function renderURL(data){
 
         root.appendChild(childRow);
     }
-
-    
-
-
 }
 
 fetchAPI();
