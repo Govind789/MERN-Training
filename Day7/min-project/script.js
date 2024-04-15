@@ -11,13 +11,14 @@ const products = dataObj.products;
 
 const allCards = products.map((elem)=>{
     let newCard = cardTemplate;
+    
     newCard = newCard.replace('__TITLE_',elem.title);
     newCard = newCard.replace('__TITLE__',elem.title);
     newCard = newCard.replace('__Info__',elem.description);
     newCard = newCard.replace('_link_',elem.images[0]);
+
     return newCard; 
 });
-
 
 const allCardString = allCards.join(' ');
 
