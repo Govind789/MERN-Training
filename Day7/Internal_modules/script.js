@@ -97,7 +97,7 @@ const allCards = products.map((elem)=>{
     newCard = newCard.replace('__TITLE__',elem.title);
     newCard = newCard.replace('__Info__',elem.description);
     return newCard
-})
+});
 
 const allCardString = allCards.join(' ');
 
