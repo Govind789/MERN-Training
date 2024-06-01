@@ -39,7 +39,7 @@
             element.classList.remove('rotate');
         }
         else {
-            element.classList.add('rotate');
+            setInterval(element.classList.add('rotate'),5000);
             element.removeAttribute('title');
         }
     }

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
 
 const data = fs.readFileSync('./templates/data.json',{encoding:'utf-8'});
 const htmlTemplate = fs.readFileSync('./templates/page.html',{encoding:'utf-8'});
@@ -16,6 +17,7 @@ const allCards = products.map((elem)=>{
     newCard = newCard.replace('__TITLE__',elem.title);
     newCard = newCard.replace('__Info__',elem.description);
     newCard = newCard.replace('_link_',elem.images[0]);
+    newCard = newCard.replace('_more_',`/product?id=${elem.id}`);
 
     return newCard; 
 });
@@ -37,11 +39,43 @@ const myPage = function (){
 
 const app = http.createServer((req,res)=>{
     console.log('request recieved');
-    console.log(req.url);
+    // console.log(req.url);
     res.writeHead(200,{
         'content-type' :'text/html'
     });
-    res.end(myPage());
+    const {pathname,query} = url.parse(req.url,true);
+
+    if(pathname == '/home'){
+        res.end(myPage());
+    }else if(pathname == '/product'){
+        const mainId = query.id;
+        const result = [];
+
+        for(let i=0; i < products.length; i++){
+            result.push(products[i].id);
+        }
+
+        const ind = ()=>{
+            for(let i=0; i < result.length ;i++){
+                if(result[i] == mainId){
+                    return i;
+                }
+            }
+        }
+        if(isNaN(ind()) == false){
+            const productData = products[ind()];
+            res.end(`
+                    <div>
+                        <h4>${productData.title}</h4>
+                        <img src="${productData.images[0]}"/>
+                        <p>${productData.description}</p>
+                    </div>
+                    `)
+        }
+    }
+    else{
+        res.end('404! not found');
+    }
 });
 
 app.listen(4000);
