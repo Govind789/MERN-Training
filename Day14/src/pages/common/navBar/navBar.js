@@ -21,8 +21,9 @@ const NavBar = (props)=>{
                 <Link to="/contact">Contact Us</Link>
                 <Link to="/help">Help</Link>
                 <Link to="/signup" style={customColor('signup')}>Signup</Link>
+                <Link to="/login" style={customColor('login')}>Login</Link>
             </div>
-            <div className="right">
+            <div className="right" style={{padding: '4px', color: 'brown'}}>
                 {contextValues.userPoints}
             </div>
             {contextValues.isLoggedIn?

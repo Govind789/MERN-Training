@@ -13,7 +13,6 @@ const Image = ()=>{
     }
     
     const handleClick = async () => {
-        cValue.setUserPoints(cValue.userPoints-1);
         try{  
             const res = await fetch(`${process.env.BACKEND_URL}/api/v1/v.images`, {
                 method: "POST",
@@ -22,6 +21,7 @@ const Image = ()=>{
                 }),
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": "Bearer "+localStorage.getItem("authorization"),
                 },
             });
             const data = await res.json();
