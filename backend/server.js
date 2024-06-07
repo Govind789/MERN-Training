@@ -1,6 +1,7 @@
 const express = require('express');
 const app = require('./app.js');
 const mongoose = require('mongoose');
+const port = process.env.PORT || 3000;
 
 // mongodb+srv://$_USERNAME_$:$_PASSWORD_$@cluster0.gn5r3hx.mongodb.net/
 
@@ -17,5 +18,5 @@ mongoose.connect(dbLink)
             console.log("database not connected");
         })
 
-app.listen(3000,()=>console.log("app connected"));
+app.listen(port,()=>console.log("app connected"));
 
