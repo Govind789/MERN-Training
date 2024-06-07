@@ -24,7 +24,7 @@ const signup = async (req,res) => {
         }
 
         const newPassword = await hashPassword(password);
-        const user = await userModel.create({email,password});
+        const user = await userModel.create({email,password:newPassword});
 
         res.status(201).json({
             status : 'success',
