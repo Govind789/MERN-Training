@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import HomePage from "./src/pages/homePage/homePage.js";
 import ImageGenerator from "./src/pages/imagegenerator/imageGenerator.js";
 import History from "./src/pages/history/history.js";
@@ -43,7 +43,7 @@ const App = ()=>{
             element: <HomePage />
         },
         {
-            path: '/image-generator',
+            path: '/imageGenerator',
             element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
         },
         {
