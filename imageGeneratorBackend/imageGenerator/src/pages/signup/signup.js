@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import NavBar from "../common/navBar/navBar"
+import NavBar from "../common/navBar/navBar.js"
 
 const Signup = ()=> {
     const[email,setEmail] = useState('');

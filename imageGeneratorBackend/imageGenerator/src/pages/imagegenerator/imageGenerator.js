@@ -1,5 +1,5 @@
 import { useState,useContext } from "react";
-import NavBar from "../common/navBar/navBar";
+import NavBar from "../common/navBar/navBar.js";
 // import PointsContext from "../../context/pointsContext.js";
 import "./imageGenerator.css";
 

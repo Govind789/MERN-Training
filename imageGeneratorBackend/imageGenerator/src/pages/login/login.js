@@ -1,6 +1,6 @@
 
 import PointsContext from '../../context/pointsContext.js';
-import NavBar from "../common/navBar/navBar";
+import NavBar from "../common/navBar/navBar.js";
 import {useState, useContext} from "react";
 
 const Login = () => {
