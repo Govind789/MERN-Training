@@ -11,6 +11,8 @@ import "./globalStyles.css";
 import {createBrowserRouter,Navigate,RouterProvider} from "react-router-dom";
 import Signup from "./src/pages/signup/signup.js";
 import Login from "./src/pages/login/login.js";
+import ContactUs from "./src/pages/contactUs/contactUs.js";
+import Help from "./src/pages/help/help.js";
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -62,7 +64,14 @@ const App = ()=>{
             path: '/login',
             element: <Login/>
         },
-
+        {
+            path: '/contactUs',
+            element: <ContactUs />
+        },
+        {
+            path: '/help',
+            element: <Help />
+        },
     ]);
 
     return (
