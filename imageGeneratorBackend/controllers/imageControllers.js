@@ -4,7 +4,7 @@ const generateImage = async (req, res) => {
     const body = req.body;
     const searchText = body.searchText;
 
-    let imageUrl = "";
+    let imageUrl = " ";
     try{
         const res = await fetch("https://api.hotpot.ai/art-maker-sdte-zmjbcrr", {
             "headers": {
