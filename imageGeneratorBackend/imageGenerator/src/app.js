@@ -88,7 +88,9 @@ const App = ()=>{
     )
 };
 
-root.render(<App/>);
+// root.render(<App/>);
+export default App;
+
 
 
 
