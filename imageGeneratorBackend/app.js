@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const ImageRouter = require('./routes/imageRouter.js');
+const imageRouter = require('./routes/imageRouter.js');
 const authRouter = require('./routes/authRoutes.js');
 const jwt = require('jsonwebtoken');
 const app = express();
@@ -18,8 +18,7 @@ app.use((req,res,next)=>{
         token = req.headers.authorization.split(' ')[1];
     }
     try{
-        console.log(token);
-        jwt.verify(token, 'my-secret-123');
+        jwt.verify(token, process.env.SECRET);
         next();
     }
     catch(err){
@@ -30,6 +29,15 @@ app.use((req,res,next)=>{
     }
 });
 
-app.use('/api/v1/images',ImageRouter);
+app.use('/api/v1/images',imageRouter);
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("imageGenerator/build"));
+  
+    const path = require("path");
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "imageGenerator", "build", "index.html"));
+    });
+  }
 
 module.exports = app;
