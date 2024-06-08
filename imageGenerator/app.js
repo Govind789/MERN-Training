@@ -18,7 +18,7 @@ const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
 
 const App = ()=>{
-    const [userPoints,setUserPoints] = useState(20);
+    const [userPoints,setUserPoints] = useState();
     const [isLoggedIn,setIsLoggedin] = useState(()=>{
         if(localStorage.getItem('authorization'))
             return true;
@@ -26,6 +26,7 @@ const App = ()=>{
             return false;
     });
 
+    const path  = 'https://image-generator-6w8o.onrender.com';
     const login = ()=> {
         setIsLoggedin(true);
     }
@@ -37,39 +38,39 @@ const App = ()=>{
 
     const router = createBrowserRouter([
         {
-            path: '/',
+            path: `${path}/`,
             element : <HomePage />,
         },
         {
-            path: '/home',
+            path: `${path}/home`,
             element: <HomePage />
         },
         {
-            path: '/imageGenerator',
+            path: `${path}/imageGenerator`,
             element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
         },
         {
-            path: '/history',
+            path: `${path}/history`,
             element: <History />
         },
         {
-            path: '/history/:historyId',
+            path: `${path}/history/:historyId`,
             element: <HistoryInfoPage />
         },
         {
-            path: '/signup',
+            path: `${path}/signup`,
             element: <Signup/>
         },
         {
-            path: '/login',
+            path: `${path}/login`,
             element: <Login/>
         },
         {
-            path: '/contactUs',
+            path: `${path}/contactUs`,
             element: <ContactUs />
         },
         {
-            path: '/help',
+            path: `${path}/help`,
             element: <Help />
         },
     ]);
