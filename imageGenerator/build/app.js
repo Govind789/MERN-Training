@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import HomePage from "../src/pages/homePage/homePage.js"
-import ImageGenerator from "../src/pages/imagegenerator/imageGenerator.js"
-import History from "../src/pages/history/history.js";
-import HistoryInfoPage from "../src/pages/history/historyInformationPage.js";
-import PointsContext from '../src/context/pointsContext.js';
+import HomePage from "./src/pages/homePage/homePage.js";
+import ImageGenerator from "./src/pages/imagegenerator/imageGenerator.js";
+import History from "./src/pages/history/history.js";
+import HistoryPage from "./src/pages/history/historyInformationPage.js";
+import PointsContext from './src/context/pointsContext.js';
 
 import "./globalStyles.css";
 
 import {createBrowserRouter,Navigate,RouterProvider} from "react-router-dom";
-import Signup from "../src/pages/signup/signup.js";
-import Login from "../src/pages/login/login.js";
-import ContactUs from "../src/pages/contactUs/contactUs.js";
-import Help from "../src/pages/help/help.js";
+import Signup from "./src/pages/signup/signup.js";
+import Login from "./src/pages/login/login.js";
+import ContactUs from "./src/pages/contactUs/contactUs.js";
+import Help from "./src/pages/help/help.js";
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -26,7 +26,7 @@ const App = ()=>{
             return false;
     });
 
-    const path  = 'https://image-generator-6w8o.onrender.com';
+    // const path  = 'https://image-generator-6w8o.onrender.com';
     const login = ()=> {
         setIsLoggedin(true);
     }
@@ -38,39 +38,39 @@ const App = ()=>{
 
     const router = createBrowserRouter([
         {
-            path: `${path}/`,
+            path: '/',
             element : <HomePage />,
         },
         {
-            path: `${path}/home`,
+            path: '/home',
             element: <HomePage />
         },
         {
-            path: `${path}/imageGenerator`,
+            path: '/imageGenerator',
             element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
         },
         {
-            path: `${path}/history`,
+            path: '/history',
             element: <History />
         },
         {
-            path: `${path}/history/:historyId`,
-            element: <HistoryInfoPage />
+            path: '/history/:historyId',
+            element: <HistoryPage />
         },
         {
-            path: `${path}/signup`,
+            path: '/signup',
             element: <Signup/>
         },
         {
-            path: `${path}/login`,
+            path: '/login',
             element: <Login/>
         },
         {
-            path: `${path}/contactUs`,
+            path: '/contactUs',
             element: <ContactUs />
         },
         {
-            path: `${path}/help`,
+            path: '/help',
             element: <Help />
         },
     ]);
