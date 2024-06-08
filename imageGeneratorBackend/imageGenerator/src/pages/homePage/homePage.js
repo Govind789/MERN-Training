@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import NavBar from "../common/navBar/navBar.js";
 import "./homePage.css";
-import PointsContext from "../../context/pointsContext.js";
+import PointsContext from '../../../context/pointsContext.js';
 
 const HomePage = ()=>{
     const contextValues = useContext(PointsContext);

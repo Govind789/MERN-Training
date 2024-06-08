@@ -2,7 +2,7 @@ import NavBar from "../common/navBar/navBar.js";
 import { useState,useEffect, useContext } from "react";
 import "./history.css";
 import HistoryCard from "./historyCard.js";
-import PointsContext from "../../context/pointsContext.js";
+import PointsContext from '../../../context/pointsContext.js';
 
 const History = (props)=>{
     const contextValues = useContext(PointsContext);
