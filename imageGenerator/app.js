@@ -1,33 +1,94 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import HomePage from "./src/pages/homePage/homePage.js";
+import ImageGenerator from "./src/pages/imagegenerator/imageGenerator.js";
+import History from "./src/pages/history/history.js";
+import HistoryInfoPage from "./src/pages/history/historyInformationPage.js";
+import PointsContext from './src/context/pointsContext.js';
 
-const ImageRouter = require('./routes/imageRouter.js');
-const authRouter = require('./routes/authRoutes.js');
-const jwt = require('jsonwebtoken');
-const app = express();
+import "./globalStyles.css";
 
-app.use(cors({origin:true}));
-app.use(express.json());
+import {createBrowserRouter,Navigate,RouterProvider} from "react-router-dom";
+import Signup from "./src/pages/signup/signup.js";
+import Login from "./src/pages/login/login.js";
+import ContactUs from "./src/pages/contactUs/contactUs.js";
+import Help from "./src/pages/help/help.js";
 
-app.use('/api/v1/images',ImageRouter);
-app.use('/api/v1/auth',authRouter);
+const parent = document.getElementById("root");
+const root = ReactDOM.createRoot(parent);
 
-app.use((req,res,next)=>{
-    let token;
-    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer ')){
-        token = req.headers.authorization.split(' ')[1];
+const App = ()=>{
+    const [userPoints,setUserPoints] = useState(20);
+    const [isLoggedIn,setIsLoggedin] = useState(()=>{
+        if(localStorage.getItem('authorization'))
+            return true;
+        else
+            return false;
+    });
+
+    const login = ()=> {
+        setIsLoggedin(true);
     }
-    try{
-        jwt.verify(token, 'my-secret-123');
-        next();
-    }
-    catch(err){
-        return res.status(401).json({
-            status: 'fail',
-            message: 'Login required',
-        })
-    }
-})
 
-module.exports = app;
+    const logout = ()=> {
+        localStorage.removeItem('authorization');
+        setIsLoggedin(false);
+    }
+
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element : <HomePage />,
+        },
+        {
+            path: '/home',
+            element: <HomePage />
+        },
+        {
+            path: '/imageGenerator',
+            element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
+        },
+        {
+            path: '/history',
+            element: <History />
+        },
+        {
+            path: '/history/:historyId',
+            element: <HistoryInfoPage />
+        },
+        {
+            path: '/signup',
+            element: <Signup/>
+        },
+        {
+            path: '/login',
+            element: <Login/>
+        },
+        {
+            path: '/contactUs',
+            element: <ContactUs />
+        },
+        {
+            path: '/help',
+            element: <Help />
+        },
+    ]);
+
+    return (
+        <PointsContext.Provider value={{
+            userPoints:userPoints,
+            setUserPoints: setUserPoints,
+            isLoggedIn : isLoggedIn,
+            login,
+            logout
+            }}>
+            <RouterProvider router={router} />
+        </PointsContext.Provider>
+    )
+};
+
+root.render(<App/>);
+
+
+
+
