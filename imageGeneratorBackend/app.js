@@ -13,7 +13,6 @@ app.use(express.json());
 app.use('/api/v1/auth',authRouter);
 
 app.use((req,res,next)=>{
-    console.log(req.headers.authorization);
     let token;
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer ')){
         token = req.headers.authorization.split(' ')[1];
