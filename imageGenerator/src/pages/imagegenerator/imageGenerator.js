@@ -6,7 +6,7 @@ import "./imageGenerator.css";
 const Image = ()=>{
     // const cValue = useContext(PointsContext);
     const [searchText, setSearchText] = useState();
-    const [imageSrc, setImgSrc] = useState("");
+    const [imageSrc, setImgSrc] = useState();
 
     const func = (e) => {
         setSearchText(e.target.value);

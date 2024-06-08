@@ -30,7 +30,7 @@ const signup = async (req,res) => {
             status : 'success',
             data : {
                 user : user,
-                token: generateToken(user.id),
+                token: generateToken(user._id),
             }
         })
     }
@@ -61,7 +61,7 @@ const login = async (req, res) => {
                     status: 'success',
                     data:{
                         user: user,
-                        token: generateToken(user.id),
+                        token: generateToken(user._id),
                     }
                 });
             }
