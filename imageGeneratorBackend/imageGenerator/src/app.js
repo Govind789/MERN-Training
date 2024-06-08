@@ -6,7 +6,7 @@ import History from "./pages/history/history.js";
 import HistoryPage from "./pages/history/historyInformationPage.js";
 import PointsContext from './context/pointsContext.js';
 
-import "../globalStyles.css";
+import "./globalStyles.css";
 
 import {createBrowserRouter,Navigate,RouterProvider} from "react-router-dom";
 import Signup from "./pages/signup/signup.js";
