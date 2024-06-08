@@ -18,6 +18,7 @@ app.use((req,res,next)=>{
         token = req.headers.authorization.split(' ')[1];
     }
     try{
+        console.log(token);
         jwt.verify(token, 'my-secret-123');
         next();
     }
