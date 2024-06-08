@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "client": "npm run start --prefix imageGenerator",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy" : "npm install --prefix imageGenerator && npm run build --prefix imageGenerator && npm install"
   },
   "author": "",
   "license": "ISC",
