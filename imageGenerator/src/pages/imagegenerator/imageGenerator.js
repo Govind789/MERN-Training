@@ -16,9 +16,9 @@ const Image = ()=>{
         try{  
             const res = await fetch(`${process.env.BACKEND_URL}api/v1/v.images`, {
                 method: "POST",
-                body: JSON.stringify({
+                body: {
                     searchText: searchText,
-                }),
+                },
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer "+localStorage.getItem("authorization"),
