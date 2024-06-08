@@ -1,10 +1,10 @@
 import { useState,useContext } from "react";
 import NavBar from "../common/navBar/navBar";
-import PointsContext from "../../context/pointsContext.js";
+// import PointsContext from "../../context/pointsContext.js";
 import "./imageGenerator.css";
 
 const Image = ()=>{
-    const cValue = useContext(PointsContext);
+    // const cValue = useContext(PointsContext);
     const [searchText, setSearchText] = useState();
     const [imageSrc, setImgSrc] = useState("");
 

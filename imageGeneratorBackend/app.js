@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({origin:true}));
 app.use(express.json());
 
-app.use('/api/v1/images',ImageRouter);
+// app.use('/api/v1/images',ImageRouter);
 app.use('/api/v1/auth',authRouter);
 
 app.use((req,res,next)=>{
