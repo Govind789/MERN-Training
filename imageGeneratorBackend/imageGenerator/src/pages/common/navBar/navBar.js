@@ -1,7 +1,6 @@
 import { useContext } from "react";
 // import "./navBar.css";
 import { Link } from "react-router-dom";
-
 import PointsContext from '../../../context/pointsContext.js';
 const cssName = require('../navBar/navBar.css');
 

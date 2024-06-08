@@ -1,5 +1,5 @@
 
-import PointsContext from '../../../context/pointsContext.js';
+import PointsContext from '../../context/pointsContext.js';
 import NavBar from "../common/navBar/navBar";
 import {useState, useContext} from "react";
 

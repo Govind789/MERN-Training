@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import NavBar from "../common/navBar/navBar.js";
 import './contactUs.css'
-import PointsContext from '../../../context/pointsContext.js';
+import PointsContext from '../../context/pointsContext.js';
 
 
 const ContactUs = ()=>{
