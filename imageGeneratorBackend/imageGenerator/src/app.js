@@ -38,39 +38,39 @@ const App = ()=>{
 
     const router = createBrowserRouter([
         {
-            path: '/',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/',
             element : <HomePage />,
         },
         {
-            path: '/home',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/home',
             element: <HomePage />
         },
         {
-            path: '/imageGenerator',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/imageGenerator',
             element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
         },
         {
-            path: '/history',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/history',
             element: <History />
         },
         {
-            path: '/history/:historyId',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/history/:historyId',
             element: <HistoryPage />
         },
         {
-            path: '/signup',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/signup',
             element: <Signup/>
         },
         {
-            path: '/login',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/login',
             element: <Login/>
         },
         {
-            path: '/contactUs',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/contactUs',
             element: <ContactUs />
         },
         {
-            path: '/help',
+            path: 'https://mern-training-0ufm.onrender.com/api/v1/images/help',
             element: <Help />
         },
     ]);
