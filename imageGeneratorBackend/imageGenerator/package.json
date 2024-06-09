@@ -5,7 +5,7 @@
   "main": "index.js",
   "proxy": "http://localhost:10000/",
   "scripts": {
-    "start": "set PORT=3006 && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "author": "",
