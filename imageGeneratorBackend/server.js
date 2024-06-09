@@ -1,7 +1,7 @@
 require('dotenv').config();
 const app = require('./app.js');
 const mongoose = require('mongoose');
-const port = process.env.PORT || 3000;
+const port = process.env.MYPORT || 3000;
 
 const url = 'mongodb+srv://$_USERNAME_$:$_PASSWORD_$@cluster0.gn5r3hx.mongodb.net/$_DB_NAME_$?retryWrites=true&w=majority&appName=Cluster0';
 
