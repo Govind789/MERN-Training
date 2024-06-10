@@ -44,7 +44,7 @@ const signup = async (req,res) => {
 
 const login = async (req, res) => {
     try{
-        const {email, password} = req.params;
+        const {email, password} = req.body;
         if(!email || !password) {
             return res.status(401).json({
                 status: 'fail',
@@ -60,7 +60,7 @@ const login = async (req, res) => {
                 res.status(201).json({
                     status: 'success',
                     data:{
-                        user: user,
+                        user: generateToken(user._id),
                     }
                 });
             }
