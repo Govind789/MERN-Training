@@ -18,7 +18,13 @@ app.use((req,res,next)=>{
         token = req.headers.authorization.split(' ')[1];
     }
     try{
-        jwt.verify(token, process.env.SECRET);
+        jwt.verify(token, process.env.SECRET,(err, decoded) => {
+            if (err) {
+              console.error('Token verification failed:', err.message);
+            } else {
+              console.log('Decoded token:', decoded);
+            }});
+            
         next();
     }
     catch(err){
