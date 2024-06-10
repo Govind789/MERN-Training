@@ -12,7 +12,7 @@ const Login = () => {
         if(!email && !password){
             return;
         }
-        const res = await fetch(`${process.env.BACKEND_URL}/login`, {
+        const res = await fetch(`${process.env.BACKEND_URL}login`, {
             headers: {
                 "Content-Type": "application/json",
             },

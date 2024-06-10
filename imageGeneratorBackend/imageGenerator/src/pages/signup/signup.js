@@ -10,7 +10,7 @@ const Signup = ()=> {
         if(!email && !password){
             return;
         }
-        const res = await fetch(`${process.env.BACKEND_URL}/signup`, {
+        const res = await fetch(`${process.env.BACKEND_URL}signup`, {
             headers: {
                 "Content-Type": "application/json",
             },
