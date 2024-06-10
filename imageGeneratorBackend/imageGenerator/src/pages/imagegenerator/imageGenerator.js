@@ -14,7 +14,7 @@ const Image = ()=>{
     
     const handleClick = async () => {
         try{  
-            const res = await fetch(`${process.env.BACKEND_URL}api/v1/images`, {
+            const res = await fetch(`api/v1/images`, {
                 method: "POST",
                 body: JSON.stringify({
                     searchText: searchText,
