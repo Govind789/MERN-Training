@@ -20,6 +20,7 @@ const Login = () => {
             body: JSON.stringify({email, password})
         });
         const data = await res.json();
+        console.log(data);
         if(data.status === "success"){
             localStorage.setItem("authorization", data.data.token);
             login();
