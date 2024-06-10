@@ -8,7 +8,7 @@ const hashPassword = async(x) => {
 }
 
 const generateToken = (x)=>{
-    return jwt.sign({userId: x}, process.env.MYPORT, { 
+    return jwt.sign({userId: x}, process.env.SECRET, { 
         expiresIn: '90d',
     });
 }
