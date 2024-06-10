@@ -32,7 +32,7 @@ app.use((req,res,next)=>{
 app.use('/api/v1/images',imageRouter);
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("imageGenerator/build"));
+    app.use(express.static("/imageGenerator/build"));
   
     const path = require("path");
     
