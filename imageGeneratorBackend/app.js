@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({origin:true}));
 app.use(express.json());
 
-app.use(authRouter);
+app.use('/api/v1/auth',authRouter);
 
 app.use((req,res,next)=>{
     let token;
@@ -29,15 +29,15 @@ app.use((req,res,next)=>{
     }
 });
 
-app.use(imageRouter);
+app.use('/api/v1/images',imageRouter);
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("/imageGenerator/build"));
+    app.use(express.static("imageGenerator/build"));
   
     const path = require("path");
     
     app.get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname, "imageGenerator", "build", "index.html"));
+      res.sendFile(path.resolve(__dirname, 'imageGenerator/build/index.html'));
     });
   }
 
