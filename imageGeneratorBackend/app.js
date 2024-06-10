@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({origin:true}));
 app.use(express.json());
 
-app.use('/api/v1/auth',authRouter);
+app.use(authRouter);
 
 app.use((req,res,next)=>{
     let token;
@@ -29,7 +29,7 @@ app.use((req,res,next)=>{
     }
 });
 
-app.use('/api/v1/images',imageRouter);
+app.use(imageRouter);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("/imageGenerator/build"));
