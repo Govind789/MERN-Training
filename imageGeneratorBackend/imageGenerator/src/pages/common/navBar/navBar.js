@@ -33,7 +33,7 @@ const NavBar = (props)=>{
                 </div>
                 {contextValues.isLoggedIn?
                     <button onClick={contextValues.logout}>Logout</button>
-                    :<button onClick={contextValues.login}><Link to="/login">Login</Link></button>
+                    :<button onClick={contextValues.login}>Login</button>
                 }
             </div>
         </div>
