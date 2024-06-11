@@ -4,6 +4,14 @@ const generateImage = async (req, res) => {
     const body = req.body;
     const searchText = body.searchText;
 
+    function getRandomLink(data) {
+        const randomItem = data.results[Math.floor(Math.random() * data.results.length)];
+        const urls = randomItem.urls;
+        const urlKeys = Object.keys(urls);
+        const randomKey = urlKeys[Math.floor(Math.random() * urlKeys.length)];
+        return urls[randomKey];
+    }
+
     let imageUrl = "";
     try{
         const res = await fetch(`https://unsplash.com/napi/search/photos?page=1&per_page=20&query=${searchText}`, {
@@ -25,7 +33,7 @@ const generateImage = async (req, res) => {
             "credentials": "include"
           });
         const data  = await res.json();
-        imageUrl = data.results[0].urls.raw;
+        imageUrl = getRandomLink(data);
         
 
         await imageModel.create({

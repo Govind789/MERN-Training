@@ -61,7 +61,7 @@ const App = ()=>{
         },
         {
             path: '/contactUs',
-            element: <ContactUs />
+            element: isLoggedIn? <ContactUs />:<Navigate to='/login'/>
         },
         {
             path: '/help',

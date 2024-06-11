@@ -8,7 +8,7 @@ const HistoryCard = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch("/api/v1/history", {
+        const res = await fetch(`/api/v1/history`, {
           method: "POST",
           body: JSON.stringify({
             searchText: searchText,
