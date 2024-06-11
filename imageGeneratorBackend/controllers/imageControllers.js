@@ -6,7 +6,7 @@ const generateImage = async (req, res) => {
 
     let imageUrl = "";
     try{
-        const res = await fetch("https://api.hotpot.ai/art-maker-sdte-zmjbcrr", {
+        const response = await fetch("https://api.hotpot.ai/art-maker-sdte-zmjbcrr", {
             "headers": {
               "accept": "*/*",
               "accept-language": "en-GB,en;q=0.7",
@@ -28,12 +28,8 @@ const generateImage = async (req, res) => {
             "mode": "cors",
             "credentials": "include"
           });
-          const responseData = await res.json();
-          if (responseData && responseData.imageUrl) {
-              imageUrl = responseData.imageUrl;
-          } else {
-              throw new Error("Failed to retrieve image URL");
-          }
+        imageUrl  = await response.json();
+
         await imageModel.create({
             searchText: searchText,
         });
