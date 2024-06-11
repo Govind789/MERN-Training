@@ -11,6 +11,7 @@ import Signup from "./pages/signup/signup.js";
 import Login from "./pages/login/login.js";
 import ContactUs from "./pages/contactUs/contactUs.js";
 import Help from "./pages/help/help.js";
+import HistoryCard from "./pages/history/historyCard.js";
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -48,11 +49,7 @@ const App = ()=>{
         },
         {
             path: '/history',
-            element: <History />
-        },
-        {
-            path: '/history/:historyId',
-            element: isLoggedIn? <HistoryPage />:<Navigate to='/login'/>
+            element: isLoggedIn? <HistoryCard />:<Navigate to='/login'/>
         },
         {
             path: '/signup',
