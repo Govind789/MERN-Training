@@ -37,8 +37,10 @@ const Image = ()=>{
             <div className="image-generator-main-container">
                 <div className='image-search'>
                     <img src={imageSrc} />
-                    <input onChange={(e)=>{func(e)}}/>
-                    <button onClick={handleClick}>Generate</button>
+                    <div className="userinput">  
+                        <input onChange={(e)=>{func(e)}}/>
+                        <button onClick={handleClick}>Generate</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
 
 .signup-main-container button {
     color: black;
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 15px;
 }
 
@@ -29,7 +29,6 @@
     font-size: 50px;
 }
 
-/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -59,7 +58,6 @@ form {
     box-sizing: border-box;
 }
 
-/* Error Messages */
 .error {
     color: red;
     font-size: 14px;

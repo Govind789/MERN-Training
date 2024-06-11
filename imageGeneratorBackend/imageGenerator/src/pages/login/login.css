@@ -15,7 +15,7 @@
 
 .login-main-container button {
     color: black;
-    padding: 5px 10px;
+    padding: 7px 20px;
     border-radius: 15px;
 }
 
@@ -29,7 +29,6 @@
     font-size: 50px;
 }
 
-/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
@@ -42,7 +41,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 30%;
+    width: 22%;
 }
 
 .myinput p {
