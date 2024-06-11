@@ -5,6 +5,7 @@ const cors = require('cors');
 const imageRouter = require('./routes/imageRouter.js');
 const authRouter = require('./routes/authRoutes.js');
 const jwt = require('jsonwebtoken');
+const historyRouter = require('./routes/historyRoutes.js');
 const app = express();
 
 app.use(cors({origin:true}));
@@ -36,6 +37,7 @@ app.use((req,res,next)=>{
 });
 
 app.use('/api/v1/images',imageRouter);
+app.use('/api/v1/history',historyRouter);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("imageGenerator/build"));
