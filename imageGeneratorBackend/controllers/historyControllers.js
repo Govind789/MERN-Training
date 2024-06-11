@@ -4,7 +4,7 @@ const imageModel = require("../models/imageModel");
 const getSearchHistory = async (req, res) => {
     try {
         const userId = req.user._id;
-        const history = await imageModel.find({userId});
+        const history = await imageModel.find({ userId });
 
         res.json({
             status: 'success',

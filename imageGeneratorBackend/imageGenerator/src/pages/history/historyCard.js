@@ -15,7 +15,7 @@ const HistoryCard = () => {
           }),
           headers: {
             "Content-Type": "application/json",
-            authorization: "Bearer " + localStorage.getItem("authorization"),
+            "authorization": "Bearer " + localStorage.getItem("authorization"),
           },
         });
         const data = await res.json();
