@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from "../common/navBar/navBar.js";
 import './history.css';
 
@@ -42,7 +42,7 @@ const HistoryCard = () => {
                         {history.map((item, index) => (
                             <li key={index}>
                                 <p>{item.searchText}</p>
-                                <span>{new Date(item.createdAt).toLocaleString()}</span>
+                                <span>{new Date(item.createdAt)}</span>
                             </li>
                         ))}
                     </ul>
