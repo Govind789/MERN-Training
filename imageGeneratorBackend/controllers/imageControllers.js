@@ -6,7 +6,7 @@ const generateImage = async (req, res) => {
 
     let imageUrl = "";
     try{
-        const response = await fetch("https://api.hotpot.ai/art-maker-sdte-zmjbcrr", {
+        const res = await fetch("https://api.hotpot.ai/art-maker-sdte-zmjbcrr", {
             "headers": {
               "accept": "*/*",
               "accept-language": "en-GB,en;q=0.7",
@@ -28,7 +28,7 @@ const generateImage = async (req, res) => {
             "mode": "cors",
             "credentials": "include"
           });
-        imageUrl  = await response.json();
+        imageUrl  = await res.json();
 
         await imageModel.create({
             searchText: searchText,
