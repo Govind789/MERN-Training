@@ -3,6 +3,8 @@ const { getSearchHistory } = require('../controllers/historyControllers.js');
 
 const historyRouter = express.Router();
 
-router.get('/history', getSearchHistory);
+historyRouter.route('/history')
+                .get(getSearchHistory);
+
 
 module.exports = historyRouter;

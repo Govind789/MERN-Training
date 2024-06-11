@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import HomePage from "./pages/homePage/homePage.js";
 import ImageGenerator from "./pages/imagegenerator/imageGenerator.js";
-import History from "./pages/history/history.js";
-import HistoryPage from "./pages/history/historyInformationPage.js";
 import PointsContext from './context/pointsContext.js';
 
 import "./globalStyles.css";
@@ -54,7 +52,7 @@ const App = ()=>{
         },
         {
             path: '/history/:historyId',
-            element: <HistoryPage />
+            element: isLoggedIn? <HistoryPage />:<Navigate to='/login'/>
         },
         {
             path: '/signup',
