@@ -6,7 +6,7 @@ const generateImage = async (req, res) => {
 
     let imageUrl = "";
     try{
-        const res = await fetch(`https://unsplash.com/nautocomplete/${searchText}`, {
+        const res = await fetch(`https://unsplash.com/napi/search/photos?page=1&per_page=20&query=${searchText}`, {
             "headers": {
               "accept": "*/*",
               "accept-language": "en-US",
@@ -17,15 +17,16 @@ const generateImage = async (req, res) => {
               "sec-fetch-mode": "cors",
               "sec-fetch-site": "same-origin"
             },
-            "referrer": "https://unsplash.com/",
+            "referrer": "https://unsplash.com/s/photos/fish",
             "referrerPolicy": "origin-when-cross-origin",
             "body": null,
             "method": "GET",
             "mode": "cors",
             "credentials": "include"
           });
-        imageUrl  = await res.json();
-        console.log(imageUrl);
+        const data  = await res.json();
+        imageUrl = data.results[0].urls.raw;
+        
 
         await imageModel.create({
             searchText: searchText,
