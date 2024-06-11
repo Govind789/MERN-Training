@@ -26,7 +26,6 @@ const App = ()=>{
             return false;
     });
 
-    // const path  = 'https://image-generator-6w8o.onrender.com';
     const login = ()=> {
         setIsLoggedin(true);
     }
@@ -47,7 +46,7 @@ const App = ()=>{
         },
         {
             path: '/imageGenerator',
-            element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
+            element: isLoggedIn? <HomePage/> :<Navigate to='/login'/>
         },
         {
             path: '/history',
@@ -88,7 +87,6 @@ const App = ()=>{
     )
 };
 
-// root.render(<App/>);
 export default App;
 
 

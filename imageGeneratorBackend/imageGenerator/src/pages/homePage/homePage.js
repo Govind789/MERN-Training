@@ -9,7 +9,9 @@ const HomePage = ()=>{
         <div>
             <NavBar page = 'HomePage' userPoints={contextValues.userPoints} setUserpoints= {contextValues.setUserpoints}/>
             <div className="homepage-main-container">
-                comming soon....
+                <div className="ImageGenerator"></div>
+                <div className="history"></div>
+                <div className=""></div>
             </div>
         </div>
     )

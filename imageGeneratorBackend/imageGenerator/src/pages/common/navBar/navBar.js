@@ -11,6 +11,12 @@ const NavBar = (props)=>{
     const customColor = (e)=>{
         return { color: page === e?'red':cssName};
     }
+
+    const logincol = (e)=>{
+        return { backgroundColor: (page === 'login' || page === 'signup' || page === 'HomePage')?'red':'rgb(22, 200, 25)',
+                padding: '4px', color: 'brown'
+        };
+    }
     return(
         <div className="header-parent-container">
             <div className="left">
@@ -22,12 +28,14 @@ const NavBar = (props)=>{
                 <Link to="/signup" style={customColor('signup')}>Signup</Link>
                 <Link to="/login" style={customColor('login')}>Login</Link>
             </div>
-            <div className="right" style={{padding: '4px', color: 'brown'}}>
+            <div className="islogin-main">
+                <div className="right" style={logincol(page)}>
+                </div>
+                {contextValues.isLoggedIn?
+                    <button onClick={contextValues.logout}>Logout</button>
+                    :<button onClick={contextValues.login}>Login</button>
+                }
             </div>
-            {contextValues.isLoggedIn?
-                <button onClick={contextValues.logout}>Logout</button>
-                :<button onClick={contextValues.login}>Login</button>
-            }
         </div>
     )
 }
