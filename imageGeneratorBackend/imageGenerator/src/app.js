@@ -46,7 +46,7 @@ const App = ()=>{
         },
         {
             path: '/imageGenerator',
-            element: isLoggedIn? <HomePage/> :<Navigate to='/login'/>
+            element: isLoggedIn? <ImageGenerator /> :<Navigate to='/login'/>
         },
         {
             path: '/history',

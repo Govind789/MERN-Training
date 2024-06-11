@@ -62,6 +62,7 @@ const Signup = ()=> {
                             type='email'
                             id="email"
                             name="email"
+                            placeholder="example@domain.com"
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
@@ -74,6 +75,7 @@ const Signup = ()=> {
                             type='password'
                             id="password"
                             name="password"
+                            placeholder="enter password"
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
