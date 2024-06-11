@@ -28,8 +28,12 @@ const generateImage = async (req, res) => {
             "mode": "cors",
             "credentials": "include"
           });
-        imageUrl  = await res.json();
-
+          const responseData = await res.json();
+          if (responseData && responseData.imageUrl) {
+              imageUrl = responseData.imageUrl;
+          } else {
+              throw new Error("Failed to retrieve image URL");
+          }
         await imageModel.create({
             searchText: searchText,
         });
@@ -37,6 +41,10 @@ const generateImage = async (req, res) => {
     
     catch(err){
         console.log(err);
+        return res.status(500).json({
+            status: 'error',
+            message: 'An error occurred while generating the image'
+        });
     }
 
     res.json({
