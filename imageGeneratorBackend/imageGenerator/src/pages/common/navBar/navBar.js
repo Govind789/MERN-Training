@@ -22,6 +22,10 @@ const NavBar = (props)=>{
         contextValues.login();
         setRedirect(true);
     }
+    const handleLogout = () => {
+        contextValues.logout();
+        setRedirect(true);
+    }
 
     return(
         <div className="header-parent-container">
@@ -38,7 +42,7 @@ const NavBar = (props)=>{
                 <div className="right" style={logincol(page)}>
                 </div>
                 {contextValues.isLoggedIn ?
-                    <button onClick={contextValues.logout}>Logout</button>
+                    <button onClick={handleLogout}>Logout</button>
                     : <button onClick={handleLogin}>Login</button>
                 }
                 {redirect && <Navigate to='/login' />}
