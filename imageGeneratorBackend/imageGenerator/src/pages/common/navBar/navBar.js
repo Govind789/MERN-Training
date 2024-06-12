@@ -13,7 +13,7 @@ const NavBar = (props)=>{
     }
 
     const logincol = (e)=>{
-        return { backgroundColor: (page === 'login' || page === 'signup' || page === 'HomePage' && !redirect)?'red':'rgb(22, 200, 25)',
+        return { backgroundColor: (page === 'login' || page === 'signup' || page === 'HomePage' || !redirect)?'red':'rgb(22, 200, 25)',
                 padding: '4px', color: 'brown'
         };
     }
