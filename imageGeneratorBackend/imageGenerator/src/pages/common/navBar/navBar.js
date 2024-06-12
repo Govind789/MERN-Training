@@ -12,9 +12,11 @@ const NavBar = (props)=>{
         return { color: page === e?'red':cssName};
     }
 
-    const logincol = (e)=>{
-        return { backgroundColor: (page === 'login' || page === 'signup' || page === 'HomePage' || redirect)?'red':'rgb(22, 200, 25)',
-                padding: '4px', color: 'brown'
+    const logincol = ()=>{
+        return { 
+            backgroundColor: contextValues.isLoggedIn?'rgb(22, 200, 25)' : 'red',
+            padding: '4px', 
+            color: 'brown'
         };
     }
 
@@ -38,7 +40,7 @@ const NavBar = (props)=>{
                 <Link to="/login" style={customColor('login')}>Login</Link>
             </div>
             <div className="islogin-main">
-                <div className="right" style={logincol(page)}>
+                <div className="right" style={logincol()}>
                 </div>
                 {contextValues.isLoggedIn ?
                     <button onClick={handleLogout}>Logout</button>
