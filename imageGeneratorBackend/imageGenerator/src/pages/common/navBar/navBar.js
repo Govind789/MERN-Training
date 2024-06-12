@@ -22,6 +22,7 @@ const NavBar = (props)=>{
         setRedirect(true);
     }
     const handleLogout = () => {
+        contextValues.logout();
         setRedirect(true);
     }
 
