@@ -8,20 +8,23 @@ const HistoryCard = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
+        const token = localStorage.getItem("authorization");
+        console.log("Token:", token);  
+
         const res = await fetch(`/api/v1/history`, {
           method: "POST",
-          body: JSON.stringify({
-            searchText: searchText,
-          }),
           headers: {
             "Content-Type": "application/json",
-            "authorization": "Bearer " + localStorage.getItem("authorization"),
+            "authorization": `Bearer ${token}`,
           },
         });
+
         const data = await res.json();
         console.log(data);
         if (data.status === "success") {
           setHistory(data.data);
+        }else {
+          console.error("Failed to fetch history:", data);
         }
       } catch (err) {
         console.error(err);
@@ -43,7 +46,7 @@ const HistoryCard = () => {
             {history.map((item, index) => (
               <li key={index}>
                 <p>{item.searchText}</p>
-                <span>{new Date(item.createdAt)}</span>
+                <span>{new Date(item.createdAt).toLocaleString()}</span>
               </li>
             ))}
           </ul>
