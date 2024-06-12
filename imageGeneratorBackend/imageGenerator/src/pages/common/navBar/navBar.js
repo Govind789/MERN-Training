@@ -1,12 +1,12 @@
 import { useContext } from "react";
-// import "./navBar.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import PointsContext from '../../../context/pointsContext.js';
 const cssName = require('../navBar/navBar.css');
 
 const NavBar = (props)=>{
     const contextValues = useContext(PointsContext);
     const page = props.page;
+    const [redirect, setRedirect] = useState(false);
 
     const customColor = (e)=>{
         return { color: page === e?'red':cssName};
@@ -17,6 +17,12 @@ const NavBar = (props)=>{
                 padding: '4px', color: 'brown'
         };
     }
+
+    const handleLogin = () => {
+        contextValues.login();
+        setRedirect(true);
+    }
+
     return(
         <div className="header-parent-container">
             <div className="left">
@@ -31,10 +37,11 @@ const NavBar = (props)=>{
             <div className="islogin-main">
                 <div className="right" style={logincol(page)}>
                 </div>
-                {contextValues.isLoggedIn?
+                {contextValues.isLoggedIn ?
                     <button onClick={contextValues.logout}>Logout</button>
-                    :<button onClick={contextValues.login}>Login</button>
+                    : <button onClick={handleLogin}>Login</button>
                 }
+                {redirect && <Navigate to='/login' />}
             </div>
         </div>
     )
