@@ -8,6 +8,7 @@ const Signup = ()=> {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [alreadyUser,setAllreadyUser] = useState('');
 
     const validateEmail = (email) => {
         const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -32,10 +33,6 @@ const Signup = ()=> {
             setPasswordError('');
         }
 
-        if (!valid) {
-            return;
-        }
-
         console.log(email,password); 
         if(!email && !password){
             return;
@@ -49,6 +46,8 @@ const Signup = ()=> {
         });
         
         const data = await res.json();
+        if(data.status == "fail")
+            setAllreadyUser("fail");
         console.log(data);
     }
   return (
@@ -81,6 +80,7 @@ const Signup = ()=> {
                             required
                         />
                         {passwordError && <span className="error">{passwordError}</span>}
+                        {alreadyUser == "fail" && !passwordError?<span>Already a User</span>:<span></span>}
                     </div>
                 </form>
                 <button onClick={handleClick}>Signup</button>
