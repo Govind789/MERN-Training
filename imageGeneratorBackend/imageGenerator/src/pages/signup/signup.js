@@ -57,8 +57,8 @@ const Signup = ()=> {
         }
         else
             setSignupSuccess(true);
+        console.log(data);
     }
-    console.log(data);
   return (
     <div>
             <NavBar page='signup' />

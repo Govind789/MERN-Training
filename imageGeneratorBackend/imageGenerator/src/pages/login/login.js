@@ -85,7 +85,7 @@ const Login = () => {
                         required
                     />
                     {passwordError && <span className="error">{passwordError}</span>}
-                    {loggedIn && !passwordError ?<span></span>:<span className="error">Please try again</span>}
+                    {!loggedIn?<span className="error">Please try again</span>:<span></span>}
                 </div>
                 <button onClick={handleClick}>Login</button>
             </div>
