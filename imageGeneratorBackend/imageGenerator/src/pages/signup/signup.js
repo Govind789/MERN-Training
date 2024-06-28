@@ -89,8 +89,8 @@ const Signup = ()=> {
                             required
                         />
                         {passwordError && <span className="error">{passwordError}</span>}
-                        {alreadyUser && <span className="error">{alreadyUser}</span>}
-                        {signupSuccess && <span className="success">Signed Up successfully</span>}
+                        {alreadyUser && !passwordError && <span className="error">already a User</span>}
+                        {signupSuccess && !alreadyUser && !passwordError && <span className="success">Signed Up successfully</span>}
                     </div>
                 </form>
                 <button onClick={handleClick}>Signup</button>
