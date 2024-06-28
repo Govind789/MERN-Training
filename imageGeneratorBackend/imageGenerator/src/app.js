@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 import HomePage from "./pages/homePage/homePage.js";
 import ImageGenerator from "./pages/imagegenerator/imageGenerator.js";
 import PointsContext from './context/pointsContext.js';
@@ -13,8 +13,8 @@ import ContactUs from "./pages/contactUs/contactUs.js";
 import Help from "./pages/help/help.js";
 import HistoryCard from "./pages/history/historyCard.js";
 
-const parent = document.getElementById("root");
-const root = ReactDOM.createRoot(parent);
+// const parent = document.getElementById("root");
+// const root = ReactDOM.createRoot(parent);
 
 const App = ()=>{
     const [userPoints,setUserPoints] = useState();

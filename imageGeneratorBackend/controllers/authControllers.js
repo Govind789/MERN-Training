@@ -22,6 +22,14 @@ const signup = async (req,res) => {
                 message : "Invalid email or password"
             })
         }
+        const existingUser = await userModel.findOne({ email });
+        if(existingUser) {
+            return res
+                .status(400)
+                .json({
+                    msg: "User with the same email already exists" 
+                })
+        }
 
         const newPassword = await hashPassword(password);
         const user = await userModel.create({email,password:newPassword});

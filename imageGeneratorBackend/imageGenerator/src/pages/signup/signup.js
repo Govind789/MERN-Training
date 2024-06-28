@@ -47,6 +47,7 @@ const Signup = ()=> {
             method: 'POST',
             body: JSON.stringify({email, password})
         });
+        
         const data = await res.json();
         console.log(data);
     }
