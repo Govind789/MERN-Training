@@ -10,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
+    const [loggedIn,setLoggedIn] = useState(false);
 
     const validateEmail = (email) => {
         const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -51,6 +52,7 @@ const Login = () => {
         console.log(data);
         if(data.status === "success"){
             localStorage.setItem("authorization", data.data.token);
+            setLoggedIn(true);
             login();
         }
     }
@@ -83,7 +85,7 @@ const Login = () => {
                         required
                     />
                     {passwordError && <span className="error">{passwordError}</span>}
-                    {login.isLoggedin && !passwordError?<span></span>:<span className="error">Please try again</span>}
+                    {loggedIn && !passwordError ?<span></span>:<span className="error">Please try again</span>}
                 </div>
                 <button onClick={handleClick}>Login</button>
             </div>

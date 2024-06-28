@@ -9,6 +9,7 @@ const Signup = ()=> {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [alreadyUser,setAllreadyUser] = useState('');
+    const [signupSuccess, setSignupSuccess] = useState(false);
 
     const validateEmail = (email) => {
         const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -33,6 +34,10 @@ const Signup = ()=> {
             setPasswordError('');
         }
 
+        if (!valid) {
+            return;
+        }
+
         console.log(email,password); 
         if(!email && !password){
             return;
@@ -46,10 +51,14 @@ const Signup = ()=> {
         });
         
         const data = await res.json();
-        if(data.status == "fail")
+        if(data.status == "fail"){
             setAllreadyUser("fail");
-        console.log(data);
+            setSignupSuccess(false);
+        }
+        else
+            setSignupSuccess(true);
     }
+    console.log(data);
   return (
     <div>
             <NavBar page='signup' />
@@ -80,7 +89,8 @@ const Signup = ()=> {
                             required
                         />
                         {passwordError && <span className="error">{passwordError}</span>}
-                        {alreadyUser == "fail" && !passwordError?<span className="error">Already a User</span>:<span className="error">Signed Up successfully</span>}
+                        {alreadyUser && <span className="error">{alreadyUser}</span>}
+                        {signupSuccess && <span className="success">Signed Up successfully</span>}
                     </div>
                 </form>
                 <button onClick={handleClick}>Signup</button>

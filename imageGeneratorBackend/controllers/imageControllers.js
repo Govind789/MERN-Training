@@ -52,7 +52,8 @@ const generateImage = async (req, res) => {
     res.json({
         status: 'success',
         data: {
-            imageUrl: imageUrl,
+            imageUrl: imageModel.imageUrl,
+            createdAt: imageModel.createdAt,
         }
     })
 }
