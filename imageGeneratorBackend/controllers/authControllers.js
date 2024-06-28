@@ -23,12 +23,12 @@ const signup = async (req,res) => {
             })
         }
         const existingUser = await userModel.findOne({ email });
-        if(existingUser) {
-            return res
-                .status(400)
-                .json({
-                    msg: "User with the same email already exists" 
-                })
+        console.log("Existing user:", existingUser); 
+        if (existingUser) {
+            return res.status(400).json({
+                status: 'fail',
+                message: "User with the same email already exists"
+            });
         }
 
         const newPassword = await hashPassword(password);
@@ -73,14 +73,14 @@ const login = async (req, res) => {
                 });
             }
             else{
-                res.status(500).json({
+                res.status(401).json({
                     status: 'fail',
                     message: "Email or password is incorrect",
                 })
             }
         }
         else{
-            res.status(500).json({
+            res.status(401).json({
                 status: 'fail',
                 message: "Email or password is incorrect",
             })
