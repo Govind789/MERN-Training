@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const [loggedIn,setLoggedIn] = useState(false);
+    const [loggedIn,setLoggedIn] = useState(true);
 
     const validateEmail = (email) => {
         const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -52,8 +52,9 @@ const Login = () => {
         console.log(data);
         if(data.status === "success"){
             localStorage.setItem("authorization", data.data.token);
-            setLoggedIn(true);
             login();
+        }else{
+            setLoggedIn(false);
         }
     }
 
